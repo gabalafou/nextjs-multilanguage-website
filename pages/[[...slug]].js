@@ -11,9 +11,8 @@ export default function Page({
   locales,
   defaultLocale,
 }) {
-  const enableBridge = true; // load the storyblok bridge everywhere
   // use the preview variable to enable the bridge only in preview mode
-  // const enableBridge = preview;
+  const enableBridge = preview;
   story = useStoryblok(story, enableBridge, locale);
 
   return (
@@ -33,7 +32,7 @@ export async function getStaticProps({
   let slug = params.slug ? params.slug.join("/") : "home";
 
   let sbParams = {
-    version: "draft", // or "published"
+    version: "published",
     resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
     language: locale,
   };
