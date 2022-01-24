@@ -1,5 +1,4 @@
 export default function Alert({ preview }) {
-  console.log(preview);
   return (
     <div
       className={
