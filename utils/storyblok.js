@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import StoryblokClient from "storyblok-js-client";
 
 const Storyblok = new StoryblokClient({
-  accessToken: process.env.STORYBLOK_API_KEY,
+  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_API_KEY,
   cache: {
     clear: "auto",
     type: "memory",
@@ -41,6 +41,7 @@ export function useStoryblok(originalStory, preview, locale) {
           version: "draft",
           resolve_relations: ["featured-posts.posts", "selected-posts.posts"],
           language: locale,
+          cv: Date.now(),
         })
           .then(({ data }) => {
             if (data.story) {

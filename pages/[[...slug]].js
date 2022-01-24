@@ -16,7 +16,7 @@ export default function Page({
   story = useStoryblok(story, enableBridge, locale);
 
   return (
-    <Layout locale={locale} locales={locales} defaultLocale={defaultLocale}>
+    <Layout locale={locale} locales={locales} defaultLocale={defaultLocale} preview={preview}>
       <DynamicComponent blok={story.content} />
     </Layout>
   );
